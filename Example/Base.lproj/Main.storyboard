@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7515.2" systemVersion="14C81h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A7z-4l-cxc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7512"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Authors-->
+        <scene sceneID="j7M-6X-TDK">
+            <objects>
+                <tableViewController id="Dk9-km-5Hk" customClass="AuthorsViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LWY-7S-zvJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="RVZ-Ij-XfD" style="IBUITableViewCellStyleDefault" id="rpG-Ym-sbj">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rpG-Ym-sbj" id="Dlp-jw-f4Y">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Oscar Wilde" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RVZ-Ij-XfD">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="EU4-6p-ExC" kind="show" identifier="show quote" id="XDb-WS-X97"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Dk9-km-5Hk" id="Tev-eG-8BM"/>
+                            <outlet property="delegate" destination="Dk9-km-5Hk" id="kIQ-Tg-dpc"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Authors" id="6od-sd-Mcy"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0G4-eY-vHe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="762" y="599"/>
+        </scene>
+        <!--A wise man-->
+        <scene sceneID="RRk-hq-hY4">
+            <objects>
+                <viewController id="EU4-6p-ExC" customClass="QuoteViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0w4-7w-Xw2"/>
+                        <viewControllerLayoutGuide type="bottom" id="vx7-V7-ln5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v9w-Td-5NH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Nothing is as satisfactory as taking a crap&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZB-Pu-21m">
+                                <rect key="frame" x="132" y="98" width="336" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="iZB-Pu-21m" secondAttribute="trailing" id="CZH-UK-V5T"/>
+                            <constraint firstAttribute="centerX" secondItem="iZB-Pu-21m" secondAttribute="centerX" id="DX1-r5-zqh"/>
+                            <constraint firstItem="iZB-Pu-21m" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="v9w-Td-5NH" secondAttribute="leadingMargin" id="hPe-qI-DRp"/>
+                            <constraint firstItem="iZB-Pu-21m" firstAttribute="top" secondItem="0w4-7w-Xw2" secondAttribute="bottom" constant="34" id="jVc-bW-Aju"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="A wise man" id="ZoO-fS-2y7"/>
+                    <connections>
+                        <outlet property="quoteLabel" destination="iZB-Pu-21m" id="qyL-WV-KS4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KqI-A6-Q7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1483" y="599"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Bah-HZ-3vG">
+            <objects>
+                <navigationController id="A7z-4l-cxc" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="21T-s7-m1q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Dk9-km-5Hk" kind="relationship" relationship="rootViewController" id="HQK-sC-rfH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nfl-1F-LKN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-58" y="599"/>
+        </scene>
+    </scenes>
+</document>
