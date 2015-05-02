@@ -2,6 +2,8 @@
 [![Version](https://img.shields.io/cocoapods/v/Swiftalytics.svg?style=flat)](http://cocoadocs.org/docsets/Swiftalytics)
 [![License](https://img.shields.io/cocoapods/l/Swiftalytics.svg?style=flat)](http://cocoadocs.org/docsets/Swiftalytics)
 [![Platform](https://img.shields.io/cocoapods/p/Swiftalytics.svg?style=flat)](http://cocoadocs.org/docsets/Swiftalytics)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 
 `Swiftalytics` lets you use Aspect Oriented Programming to
 declare all the analytics view tracking for your app on
@@ -22,9 +24,10 @@ func setupScreenTracking() {
 }
 
 extension UIViewController {
-    func viewDidAppear(animated: Bool) {
+
+    // Swizzle viewDidAppear and report to your favorite analytics service
+    func swizzled_viewDidAppear(animated: Bool) {
         if let name = Swiftalytics.trackingNameForViewController(self) {
-            // Report to your analytics service
             println("Tracked view controller: "+name)
         }
     }
@@ -39,7 +42,7 @@ extension UIViewController {
 
 ### Cocoapods
 
-CocoaPods 0.36 beta adds supports for Swift and embedded frameworks. You can install it with the following command:
+[CocoaPods](https://github.com/cocoapods/cocoapods) 0.36 adds supports for Swift and embedded frameworks. You can install it with the following command:
 
 ```bash
 $ gem install cocoapods --pre
@@ -62,7 +65,7 @@ $ pod install
 
 ### Carthage
 
-Carthage is a decentralized dependency manager that automates the process of adding frameworks to your Cocoa application.
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that automates the process of adding frameworks to your Cocoa application.
 
 You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
 
