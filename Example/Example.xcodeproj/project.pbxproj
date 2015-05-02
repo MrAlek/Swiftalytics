@@ -7,33 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		935375981A8FD21B00F00DB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935375971A8FD21B00F00DB4 /* AppDelegate.swift */; };
+		932472281AF56D0F004FF975 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935375971A8FD21B00F00DB4 /* AppDelegate.swift */; };
+		932472291AF56D12004FF975 /* ScreenTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935375C31A8FDBBB00F00DB4 /* ScreenTracking.swift */; };
+		9324722A1AF56D14004FF975 /* ViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935375C51A8FDC2300F00DB4 /* ViewControllers.swift */; };
 		9353759D1A8FD21B00F00DB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9353759B1A8FD21B00F00DB4 /* Main.storyboard */; };
 		9353759F1A8FD21B00F00DB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9353759E1A8FD21B00F00DB4 /* Images.xcassets */; };
 		935375A21A8FD21B00F00DB4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935375A01A8FD21B00F00DB4 /* LaunchScreen.xib */; };
-		935375C41A8FDBBB00F00DB4 /* ScreenTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935375C31A8FDBBB00F00DB4 /* ScreenTracking.swift */; };
-		935375C61A8FDC2300F00DB4 /* ViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935375C51A8FDC2300F00DB4 /* ViewControllers.swift */; };
-		935E2CB01A90138A00639F75 /* Swiftalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 935E2CAB1A90136600639F75 /* Swiftalytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		935E2CAA1A90136600639F75 /* PBXContainerItemProxy */ = {
+		932472331AF56F3B004FF975 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 935E2CA51A90136600639F75 /* Swiftalytics.xcodeproj */;
+			containerPortal = 9324722E1AF56F3B004FF975 /* Swiftalytics.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 9353756D1A8FD17D00F00DB4;
 			remoteInfo = Swiftalytics;
 		};
-		935E2CAC1A90136600639F75 /* PBXContainerItemProxy */ = {
+		932472351AF56F3B004FF975 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 935E2CA51A90136600639F75 /* Swiftalytics.xcodeproj */;
+			containerPortal = 9324722E1AF56F3B004FF975 /* Swiftalytics.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 935375781A8FD17D00F00DB4;
 			remoteInfo = SwiftalyticsTests;
 		};
-		935E2CAE1A90137D00639F75 /* PBXContainerItemProxy */ = {
+		932472371AF56F57004FF975 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 935E2CA51A90136600639F75 /* Swiftalytics.xcodeproj */;
+			containerPortal = 9324722E1AF56F3B004FF975 /* Swiftalytics.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 9353756C1A8FD17D00F00DB4;
 			remoteInfo = Swiftalytics;
@@ -41,16 +40,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9324722E1AF56F3B004FF975 /* Swiftalytics.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swiftalytics.xcodeproj; path = ../Swiftalytics.xcodeproj; sourceTree = "<group>"; };
 		935375921A8FD21B00F00DB4 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		935375961A8FD21B00F00DB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		935375971A8FD21B00F00DB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9353759C1A8FD21B00F00DB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9353759E1A8FD21B00F00DB4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		935375A11A8FD21B00F00DB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		935375BA1A8FD58C00F00DB4 /* Swiftalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swiftalytics.framework; path = "build/Debug-iphoneos/Swiftalytics.framework"; sourceTree = "<group>"; };
 		935375C31A8FDBBB00F00DB4 /* ScreenTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenTracking.swift; sourceTree = "<group>"; };
 		935375C51A8FDC2300F00DB4 /* ViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllers.swift; sourceTree = "<group>"; };
-		935E2CA51A90136600639F75 /* Swiftalytics.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Swiftalytics.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,20 +56,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				935E2CB01A90138A00639F75 /* Swiftalytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9324722F1AF56F3B004FF975 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				932472341AF56F3B004FF975 /* Swiftalytics.framework */,
+				932472361AF56F3B004FF975 /* SwiftalyticsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		935375891A8FD21B00F00DB4 = {
 			isa = PBXGroup;
 			children = (
 				935375941A8FD21B00F00DB4 /* Source */,
-				935375BA1A8FD58C00F00DB4 /* Swiftalytics.framework */,
 				935375931A8FD21B00F00DB4 /* Products */,
-				935E2CA51A90136600639F75 /* Swiftalytics.xcodeproj */,
+				9324722E1AF56F3B004FF975 /* Swiftalytics.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,7 +100,7 @@
 				935375951A8FD21B00F00DB4 /* Supporting Files */,
 			);
 			name = Source;
-			path = Example;
+			path = ./;
 			sourceTree = "<group>";
 		};
 		935375951A8FD21B00F00DB4 /* Supporting Files */ = {
@@ -104,15 +109,6 @@
 				935375961A8FD21B00F00DB4 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		935E2CA61A90136600639F75 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				935E2CAB1A90136600639F75 /* Swiftalytics.framework */,
-				935E2CAD1A90136600639F75 /* SwiftalyticsTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,7 +125,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				935E2CAF1A90137D00639F75 /* PBXTargetDependency */,
+				932472381AF56F57004FF975 /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = Example;
@@ -163,8 +159,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 935E2CA61A90136600639F75 /* Products */;
-					ProjectRef = 935E2CA51A90136600639F75 /* Swiftalytics.xcodeproj */;
+					ProductGroup = 9324722F1AF56F3B004FF975 /* Products */;
+					ProjectRef = 9324722E1AF56F3B004FF975 /* Swiftalytics.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -175,18 +171,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		935E2CAB1A90136600639F75 /* Swiftalytics.framework */ = {
+		932472341AF56F3B004FF975 /* Swiftalytics.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Swiftalytics.framework;
-			remoteRef = 935E2CAA1A90136600639F75 /* PBXContainerItemProxy */;
+			remoteRef = 932472331AF56F3B004FF975 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		935E2CAD1A90136600639F75 /* SwiftalyticsTests.xctest */ = {
+		932472361AF56F3B004FF975 /* SwiftalyticsTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = SwiftalyticsTests.xctest;
-			remoteRef = 935E2CAC1A90136600639F75 /* PBXContainerItemProxy */;
+			remoteRef = 932472351AF56F3B004FF975 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -209,19 +205,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				935375981A8FD21B00F00DB4 /* AppDelegate.swift in Sources */,
-				935375C41A8FDBBB00F00DB4 /* ScreenTracking.swift in Sources */,
-				935375C61A8FDC2300F00DB4 /* ViewControllers.swift in Sources */,
+				932472291AF56D12004FF975 /* ScreenTracking.swift in Sources */,
+				932472281AF56D0F004FF975 /* AppDelegate.swift in Sources */,
+				9324722A1AF56D14004FF975 /* ViewControllers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		935E2CAF1A90137D00639F75 /* PBXTargetDependency */ = {
+		932472381AF56F57004FF975 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Swiftalytics;
-			targetProxy = 935E2CAE1A90137D00639F75 /* PBXContainerItemProxy */;
+			targetProxy = 932472371AF56F57004FF975 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -332,7 +328,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
-				INFOPLIST_FILE = Example/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -346,7 +342,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
-				INFOPLIST_FILE = Example/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
