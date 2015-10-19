@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		935375791A8FD17D00F00DB4 /* Swiftalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9353756D1A8FD17D00F00DB4 /* Swiftalytics.framework */; };
-		935375801A8FD17D00F00DB4 /* SwiftalyticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9353757F1A8FD17D00F00DB4 /* SwiftalyticsTests.swift */; };
 		935375B91A8FD43D00F00DB4 /* Swiftalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 935375721A8FD17D00F00DB4 /* Swiftalytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		935375BD1A8FD5D400F00DB4 /* Swiftalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935375BC1A8FD5D400F00DB4 /* Swiftalytics.swift */; };
 		935375C01A8FD67300F00DB4 /* SWAClassBlockStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 935375BE1A8FD67300F00DB4 /* SWAClassBlockStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,8 +29,6 @@
 		935375711A8FD17D00F00DB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		935375721A8FD17D00F00DB4 /* Swiftalytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swiftalytics.h; sourceTree = "<group>"; };
 		935375781A8FD17D00F00DB4 /* SwiftalyticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftalyticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9353757E1A8FD17D00F00DB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9353757F1A8FD17D00F00DB4 /* SwiftalyticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftalyticsTests.swift; sourceTree = "<group>"; };
 		935375BC1A8FD5D400F00DB4 /* Swiftalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swiftalytics.swift; sourceTree = "<group>"; };
 		935375BE1A8FD67300F00DB4 /* SWAClassBlockStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAClassBlockStorage.h; sourceTree = "<group>"; };
 		935375BF1A8FD67300F00DB4 /* SWAClassBlockStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAClassBlockStorage.m; sourceTree = "<group>"; };
@@ -60,7 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				9353756F1A8FD17D00F00DB4 /* Swiftalytics */,
-				9353757C1A8FD17D00F00DB4 /* SwiftalyticsTests */,
 				9353756E1A8FD17D00F00DB4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,24 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				935375711A8FD17D00F00DB4 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		9353757C1A8FD17D00F00DB4 /* SwiftalyticsTests */ = {
-			isa = PBXGroup;
-			children = (
-				9353757F1A8FD17D00F00DB4 /* SwiftalyticsTests.swift */,
-				9353757D1A8FD17D00F00DB4 /* Supporting Files */,
-			);
-			name = SwiftalyticsTests;
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		9353757D1A8FD17D00F00DB4 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				9353757E1A8FD17D00F00DB4 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -170,7 +148,9 @@
 		935375641A8FD17D00F00DB4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Apps and Wonders";
 				TargetAttributes = {
 					9353756C1A8FD17D00F00DB4 = {
@@ -230,7 +210,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				935375801A8FD17D00F00DB4 /* SwiftalyticsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +246,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -281,7 +261,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -322,7 +302,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -344,6 +324,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appsandwonders.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -362,6 +343,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appsandwonders.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -380,6 +362,7 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appsandwonders.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -393,6 +376,7 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appsandwonders.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
