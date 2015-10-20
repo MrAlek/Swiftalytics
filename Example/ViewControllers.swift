@@ -40,7 +40,7 @@ class AuthorsViewController: UITableViewController {
     }
 }
 
-extension AuthorsViewController: UITableViewDataSource {
+extension AuthorsViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -51,7 +51,7 @@ extension AuthorsViewController: UITableViewDataSource {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! UITableViewCell?
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
     
         cell?.textLabel?.text = authors[indexPath.row].name
         

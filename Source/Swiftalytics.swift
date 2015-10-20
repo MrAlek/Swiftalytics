@@ -30,12 +30,12 @@ public enum TrackingNameType {
 
 private let storage = SWAClassBlockStorage()
 
-public func setTrackingNameForViewController<T: UIViewController>(viewController: T.Type, @autoclosure #name: () -> String) {
+public func setTrackingNameForViewController<T: UIViewController>(viewController: T.Type, @autoclosure name: () -> String) {
     let n = name()
     setTrackingNameForViewController(viewController) {_ in n}
 }
 
-public func setTrackingNameForViewController<T: UIViewController>(viewController: T.Type, #trackingType: TrackingNameType) {
+public func setTrackingNameForViewController<T: UIViewController>(viewController: T.Type, trackingType: TrackingNameType) {
     switch trackingType {
     case .NavigationTitle:
         setTrackingNameForViewController(viewController) { vc in
@@ -43,14 +43,14 @@ public func setTrackingNameForViewController<T: UIViewController>(viewController
                 return title
             }
             
-            let className = toString(vc.dynamicType)
-            println("Swiftalytics: View Controller \(className) missing navigation item title")
+            let className = String(vc.dynamicType)
+            print("Swiftalytics: View Controller \(className) missing navigation item title")
             return className
         }
     }
 }
 
-public func setTrackingNameForViewController<T: UIViewController>(viewController: T.Type, #nameFunction: (T -> String)) {
+public func setTrackingNameForViewController<T: UIViewController>(viewController: T.Type, nameFunction: (T -> String)) {
     setTrackingNameForViewController({ vc in { nameFunction(vc) } }) // Curry
 }
 
