@@ -40,7 +40,7 @@ extension UIViewController {
 >
 > To use Swiftalytics with a project targeting iOS 7, you must include the `Swiftalytics.swift` source file directly in your project.
 
-### Cocoapods
+### CocoaPods
 
 [CocoaPods](https://github.com/cocoapods/cocoapods) 0.36 adds supports for Swift and embedded frameworks. You can install it with the following command:
 
