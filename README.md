@@ -54,7 +54,7 @@ To integrate Swiftalytics into your Xcode project using CocoaPods, specify it in
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
-pod 'Swiftalytics', '~> 0.1'
+pod 'Swiftalytics', :git => 'https://github.com/MrAlek/Swiftalytics.git'
 ```
 
 Then, run the following command:
