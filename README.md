@@ -28,6 +28,7 @@ extension UIViewController {
     // Swizzle viewDidAppear and report to your favorite analytics service
     func swizzled_viewDidAppear(animated: Bool) {
         if let name = Swiftalytics.trackingNameForViewController(self) {
+            ARAnalytics.pageView(name)
             println("Tracked view controller: "+name)
         }
     }
@@ -42,19 +43,13 @@ extension UIViewController {
 
 ### CocoaPods
 
-[CocoaPods](https://github.com/cocoapods/cocoapods) 0.36 adds supports for Swift and embedded frameworks. You can install it with the following command:
-
-```bash
-$ gem install cocoapods --pre
-```
-
-To integrate Swiftalytics into your Xcode project using CocoaPods, specify it in your `Podfile`:
+To integrate Swiftalytics into your Xcode project using [CocoaPods](https://github.com/cocoapods/cocoapods), specify it in your `Podfile`:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
-pod 'Swiftalytics', '~> 0.1'
+pod 'Swiftalytics', '~> 0.2'
 ```
 
 Then, run the following command:
@@ -77,7 +72,7 @@ $ brew install carthage
 To integrate Swiftalytics into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "MrAlek/Swiftalytics" >= 0.1
+github "MrAlek/Swiftalytics" >= 0.2
 ```
 
 ## Usage

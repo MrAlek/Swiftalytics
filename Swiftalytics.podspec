@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Swiftalytics"
-  s.version          = "0.1"
+  s.version          = "0.2"
   s.summary          = "A declarative Swift DSL for your view tracking needs"
   s.description      = <<-DESC
                        Swiftalytics lets you use Aspect Oriented Programming to
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
                          * Assign your own closures with correct type inference
                        * Flexible tracking (not forced to viewDidAppear)
                        * Works great with [ARAnalytics](https://github.com/orta/ARAnalytics)
-                       * Built for Swift 1.2
+                       * Built for Swift 2.1
                        DESC
   s.homepage         = "https://github.com/MrAlek/Swiftalytics"
   s.license          = 'MIT'
