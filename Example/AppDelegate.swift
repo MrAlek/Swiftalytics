@@ -43,8 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        setupScreenTracking()
+        ScreenTracking.setup()
         
         if let navc = window?.rootViewController as? UINavigationController {
             if let avc = navc.topViewController as? AuthorsViewController {

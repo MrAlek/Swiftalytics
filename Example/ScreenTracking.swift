@@ -25,11 +25,13 @@
 import UIKit
 import Swiftalytics
 
-func setupScreenTracking() {
-    AuthorsViewController.self  >>   "Authors (start)"
-    QuoteViewController.self    >> { "Quote: "+$0.author.name }
-    NewQuoteViewController.self >>   .NavigationTitle
-    RandomQuoteViewController.computedPageName<<
+struct ScreenTracking {
+    static func setup() {
+        AuthorsViewController.self  >>   "Authors (start)"
+        QuoteViewController.self    >> { "Quote: "+$0.author.name }
+        NewQuoteViewController.self >>   .NavigationTitle
+        RandomQuoteViewController.computedPageName<<
+    }
 }
 
 extension UIViewController {
