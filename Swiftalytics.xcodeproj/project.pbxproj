@@ -7,28 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		935375791A8FD17D00F00DB4 /* Swiftalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9353756D1A8FD17D00F00DB4 /* Swiftalytics.framework */; };
 		935375B91A8FD43D00F00DB4 /* Swiftalytics.h in Headers */ = {isa = PBXBuildFile; fileRef = 935375721A8FD17D00F00DB4 /* Swiftalytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		935375BD1A8FD5D400F00DB4 /* Swiftalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935375BC1A8FD5D400F00DB4 /* Swiftalytics.swift */; };
 		935375C01A8FD67300F00DB4 /* SWAClassBlockStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 935375BE1A8FD67300F00DB4 /* SWAClassBlockStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		935375C11A8FD67300F00DB4 /* SWAClassBlockStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 935375BF1A8FD67300F00DB4 /* SWAClassBlockStorage.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		9353757A1A8FD17D00F00DB4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 935375641A8FD17D00F00DB4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9353756C1A8FD17D00F00DB4;
-			remoteInfo = Swiftalytics;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		9353756D1A8FD17D00F00DB4 /* Swiftalytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swiftalytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		935375711A8FD17D00F00DB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		935375721A8FD17D00F00DB4 /* Swiftalytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swiftalytics.h; sourceTree = "<group>"; };
-		935375781A8FD17D00F00DB4 /* SwiftalyticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftalyticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		935375BC1A8FD5D400F00DB4 /* Swiftalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swiftalytics.swift; sourceTree = "<group>"; };
 		935375BE1A8FD67300F00DB4 /* SWAClassBlockStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAClassBlockStorage.h; sourceTree = "<group>"; };
 		935375BF1A8FD67300F00DB4 /* SWAClassBlockStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAClassBlockStorage.m; sourceTree = "<group>"; };
@@ -39,14 +27,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		935375751A8FD17D00F00DB4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				935375791A8FD17D00F00DB4 /* Swiftalytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +45,6 @@
 			isa = PBXGroup;
 			children = (
 				9353756D1A8FD17D00F00DB4 /* Swiftalytics.framework */,
-				935375781A8FD17D00F00DB4 /* SwiftalyticsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,24 +103,6 @@
 			productReference = 9353756D1A8FD17D00F00DB4 /* Swiftalytics.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		935375771A8FD17D00F00DB4 /* SwiftalyticsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 935375861A8FD17D00F00DB4 /* Build configuration list for PBXNativeTarget "SwiftalyticsTests" */;
-			buildPhases = (
-				935375741A8FD17D00F00DB4 /* Sources */,
-				935375751A8FD17D00F00DB4 /* Frameworks */,
-				935375761A8FD17D00F00DB4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9353757B1A8FD17D00F00DB4 /* PBXTargetDependency */,
-			);
-			name = SwiftalyticsTests;
-			productName = SwiftalyticsTests;
-			productReference = 935375781A8FD17D00F00DB4 /* SwiftalyticsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -154,9 +115,6 @@
 				ORGANIZATIONNAME = "Apps and Wonders";
 				TargetAttributes = {
 					9353756C1A8FD17D00F00DB4 = {
-						CreatedOnToolsVersion = 6.3;
-					};
-					935375771A8FD17D00F00DB4 = {
 						CreatedOnToolsVersion = 6.3;
 					};
 				};
@@ -174,20 +132,12 @@
 			projectRoot = "";
 			targets = (
 				9353756C1A8FD17D00F00DB4 /* Swiftalytics */,
-				935375771A8FD17D00F00DB4 /* SwiftalyticsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9353756B1A8FD17D00F00DB4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		935375761A8FD17D00F00DB4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -206,22 +156,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		935375741A8FD17D00F00DB4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		9353757B1A8FD17D00F00DB4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9353756C1A8FD17D00F00DB4 /* Swiftalytics */;
-			targetProxy = 9353757A1A8FD17D00F00DB4 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		935375811A8FD17D00F00DB4 /* Debug */ = {
@@ -349,38 +284,6 @@
 			};
 			name = Release;
 		};
-		935375871A8FD17D00F00DB4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.appsandwonders.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		935375881A8FD17D00F00DB4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.appsandwonders.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -398,15 +301,6 @@
 			buildConfigurations = (
 				935375841A8FD17D00F00DB4 /* Debug */,
 				935375851A8FD17D00F00DB4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		935375861A8FD17D00F00DB4 /* Build configuration list for PBXNativeTarget "SwiftalyticsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				935375871A8FD17D00F00DB4 /* Debug */,
-				935375881A8FD17D00F00DB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
