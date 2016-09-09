@@ -13,7 +13,7 @@ neat one-liners in a single file!
   * Assign your own closures with correct type inference
 * Flexible tracking (not forced to viewDidAppear)
 * Works great with [ARAnalytics](https://github.com/orta/ARAnalytics)
-* Built for Swift 2
+* Built for Swift 2.3
 
 ```swift
 func setupScreenTracking() {
@@ -49,7 +49,7 @@ To integrate Swiftalytics into your Xcode project using [CocoaPods](https://gith
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
-pod 'Swiftalytics', '~> 0.2'
+pod 'Swiftalytics', '~> 0.3'
 ```
 
 Then, run the following command:
@@ -72,7 +72,7 @@ $ brew install carthage
 To integrate Swiftalytics into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "MrAlek/Swiftalytics" >= 0.2
+github "MrAlek/Swiftalytics" >= 0.3
 ```
 
 ## Usage
