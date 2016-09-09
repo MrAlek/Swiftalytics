@@ -46,8 +46,8 @@ extension UIViewController {
         }
 
         dispatch_once(&Static.token) {
-            let originalSelector = Selector("viewDidAppear:")
-            let swizzledSelector = Selector("swiftalytics_viewDidAppear:")
+            let originalSelector = #selector(UIViewController.viewDidAppear(_:))
+            let swizzledSelector = #selector(UIViewController.swiftalytics_viewDidAppear(_:))
 
             let originalMethod = class_getInstanceMethod(self, originalSelector)
             let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
