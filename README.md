@@ -13,13 +13,12 @@ neat one-liners in a single file!
   * Assign your own closures with correct type inference
 * Flexible tracking (not forced to viewDidAppear)
 * Works great with [ARAnalytics](https://github.com/orta/ARAnalytics)
-* Built for Swift 2.3
 
 ```swift
 func setupScreenTracking() {
     AuthorsViewController.self  >>   "Authors (start)"
     QuoteViewController.self    >> { "Quote: "+$0.author.name }
-    NewQuoteViewController.self >>   .NavigationTitle
+    NewQuoteViewController.self >>   .navigationTitle
     RandomQuoteViewController.computedPageName<<
 }
 
@@ -27,7 +26,7 @@ extension UIViewController {
 
     // Swizzle viewDidAppear and report to your favorite analytics service
     func swizzled_viewDidAppear(animated: Bool) {
-        if let name = Swiftalytics.trackingNameForViewController(self) {
+        if let name = Swiftalytics.trackingName(for: self) {
             ARAnalytics.pageView(name)
             println("Tracked view controller: "+name)
         }
@@ -35,11 +34,17 @@ extension UIViewController {
 }
 ```
 
+## Swift versions
+
+* Swiftalytics 0.4 and above uses Swift 3.0
+* Swiftalytics 0.3 of the framework uses Swift 2.3
+* Swiftalytics 0.2 uses Swift 2.2
+
 ## Installation
 
 > **Embedded frameworks require a minimum deployment target of iOS 8 or OS X Mavericks.**
 >
-> To use Swiftalytics with a project targeting iOS 7, you must include the `Swiftalytics.swift` source file directly in your project.
+> To use Swiftalytics with a project targeting iOS 7, you must include the source files directly in your project.
 
 ### CocoaPods
 
@@ -49,7 +54,7 @@ To integrate Swiftalytics into your Xcode project using [CocoaPods](https://gith
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
-pod 'Swiftalytics', '~> 0.3'
+pod 'Swiftalytics', '~> 0.4'
 ```
 
 Then, run the following command:
@@ -72,33 +77,33 @@ $ brew install carthage
 To integrate Swiftalytics into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "MrAlek/Swiftalytics" >= 0.3
+github "MrAlek/Swiftalytics" >= 0.4
 ```
 
 ## Usage
 
 ### Declaring tracking names
 
-Use the `setTrackingNameForViewController` function to declare a tracking name for a specific view controller type.
+Use the `setTrackingName(for:)` function to declare a tracking name for a specific view controller type.
 The method has several different type signatures for static and dynamic typing.
 
 ```swift
 // Static
-Swiftalytics.setTrackingNameForViewController(MasterViewController.self, name: "Start view")
+Swiftalytics.setTrackingName(for: MasterViewController.self, name: "Start view")
 
 // Dynamic with closure
-Swiftalytics.setTrackingNameForViewController(DetailViewController.self) { "Detail: \($0.dataObject.name)" }
+Swiftalytics.setTrackingNameForViewController(for: DetailViewController.self) { "Detail: \($0.dataObject.name)" }
 
 // Dynamic using navigation item title
-Swiftalytics.setTrackingNameForViewController(SettingsViewController.self, trackingType:.NavigationTitle)
+Swiftalytics.setTrackingNameForViewController(for: SettingsViewController.self, trackingType:.navigationTitle)
 
 // Dynamic with function
-Swiftalytics.setTrackingNameForViewController(OtherViewController.functionProducingAString)
+Swiftalytics.setTrackingNameForViewController(for: OtherViewController.functionProducingAString)
 ```
 
 ### Retrieving tracking names
 
-The `trackingNameForViewController` function is used to retrieve the name that has been declared earlier for a specific view controller.
+The `trackingName(for:)` function is used to retrieve the name that has been declared earlier for a specific view controller.
 When using dynamic tracking, the tracking name for that view controller is computed when calling this function.
 
 ### Reporting view tracking to analytics providers
@@ -106,7 +111,7 @@ When using dynamic tracking, the tracking name for that view controller is compu
 ```swift
 extension UIViewController {
     func viewDidAppear(animated: Bool) {
-        if let name = Swiftalytics.trackingNameForViewController(self) {
+        if let name = Swiftalytics.trackingName(for: self) {
             // Report to your analytics service
             println("Tracked view controller: "+name)
         }
@@ -124,19 +129,19 @@ Since operator overload polluting is a problem in Swift, no operators are declar
 Instead it is recommended to create a Swift file for view tracking with private scoped operators and declare all page names there.
 
 ```swift
-postfix operator << { }
-private postfix func <<<T: UIViewController>(trackClassFunction: (T -> () -> String)) {
-    Swiftalytics.setTrackingNameForViewController(trackClassFunction)
+postfix operator <<
+private postfix func <<<T: UIViewController>(trackClassFunction: @escaping ((T) -> () -> String)) {
+    Swiftalytics.setTrackingName(for: trackClassFunction)
 }
 
-private func >> <T: UIViewController>(left: T.Type, @autoclosure right: () -> String) {
-    Swiftalytics.setTrackingNameForViewController(left, name: right)
+private func >> <T: UIViewController>(left: T.Type, right: @autoclosure () -> String) {
+    Swiftalytics.setTrackingName(for: left, name: right)
 }
 private func >> <T: UIViewController>(left: T.Type, right: TrackingNameType) {
-    Swiftalytics.setTrackingNameForViewController(left, trackingType: right)
+    Swiftalytics.setTrackingName(for: left, trackingType: right)
 }
-private func >> <T: UIViewController>(left: T.Type, right: (T -> String)) {
-    Swiftalytics.setTrackingNameForViewController(left, nameFunction: right)
+private func >> <T: UIViewController>(left: T.Type, right: @escaping ((T) -> String)) {
+    Swiftalytics.setTrackingName(for: left, nameFunction: right)
 }
 ```
 
