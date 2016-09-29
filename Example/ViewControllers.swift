@@ -28,32 +28,32 @@ class AuthorsViewController: UITableViewController {
     var authors: [Author]!
     let cellIdentifier = "cell"
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "show quote" {
             let cell = sender! as! UITableViewCell
-            let index = tableView.indexPathForCell(cell)!.row
+            let index = (tableView.indexPath(for: cell)! as NSIndexPath).row
             
-            let qvc = segue.destinationViewController as! QuoteViewController
+            let qvc = segue.destination as! QuoteViewController
             qvc.author = authors[index]
         }
     }
 }
 
 extension AuthorsViewController {
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return authors.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
     
-        cell?.textLabel?.text = authors[indexPath.row].name
+        cell?.textLabel?.text = authors[(indexPath as NSIndexPath).row].name
         
         return cell!
     }

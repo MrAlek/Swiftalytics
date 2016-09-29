@@ -25,42 +25,42 @@
 import UIKit
 
 public enum TrackingNameType {
-    case NavigationTitle
+    case navigationTitle
 }
 
 private let storage = SWAClassBlockStorage()
 
-public func setTrackingNameForViewController<T: UIViewController>(viewController: T.Type, @autoclosure name: () -> String) {
+public func setTrackingName<T: UIViewController>(for viewController: T.Type, name: @autoclosure () -> String) {
     let n = name()
-    setTrackingNameForViewController(viewController) {_ in n}
+    setTrackingName(for: viewController) {_ in n}
 }
 
-public func setTrackingNameForViewController<T: UIViewController>(viewController: T.Type, trackingType: TrackingNameType) {
+public func setTrackingName<T: UIViewController>(for viewController: T.Type, trackingType: TrackingNameType) {
     switch trackingType {
-    case .NavigationTitle:
-        setTrackingNameForViewController(viewController) { vc in
+    case .navigationTitle:
+        setTrackingName(for: viewController) { vc in
             if let title = vc.navigationItem.title {
                 return title
             }
             
-            let className = String(vc.dynamicType)
+            let className = String(describing: type(of: vc))
             print("Swiftalytics: View Controller \(className) missing navigation item title")
             return className
         }
     }
 }
 
-public func setTrackingNameForViewController<T: UIViewController>(viewController: T.Type, nameFunction: (T -> String)) {
-    setTrackingNameForViewController({ vc in { nameFunction(vc) } }) // Curry
+public func setTrackingName<T: UIViewController>(for viewController: T.Type, nameFunction: @escaping ((T) -> String)) {
+    setTrackingName(for: { vc in { nameFunction(vc) } }) // Curry
 }
 
-public func setTrackingNameForViewController<T: UIViewController>(curriedNameFunction: T -> () -> String) {
+public func setTrackingName<T: UIViewController>(for curriedNameFunction: @escaping (T) -> () -> String) {
     let block: MapBlock = { vc in curriedNameFunction(vc as! T)() }
-    storage.setBlock(block, forClass:T.valueForKey("self")!)
+    storage.setBlock(block, forClass:T.value(forKey: "self")!)
 }
 
-public func trackingNameForViewController<T: UIViewController>(viewController: T) -> String? {
-    return storage.blockForClass(viewController.valueForKey("class")!)?(viewController) as! String?
+public func trackingName<T: UIViewController>(for viewController: T) -> String? {
+    return storage.block(forClass: viewController.value(forKey: "class")!)?(viewController) as! String?
 }
 
 public func clearTrackingNames() {
@@ -68,5 +68,5 @@ public func clearTrackingNames() {
 }
 
 public func removeTrackingForViewController<T: UIViewController>(_: T.Type) {
-    storage.removeBlockForClass(T.valueForKey("self")!)
+    storage.removeBlock(forClass: T.value(forKey: "self")!)
 }

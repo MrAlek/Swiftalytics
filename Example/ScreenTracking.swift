@@ -29,15 +29,15 @@ struct ScreenTracking {
     static func setup() {
         AuthorsViewController.self  >>   "Authors (start)"
         QuoteViewController.self    >> { "Quote: "+$0.author.name }
-        NewQuoteViewController.self >>   .NavigationTitle
+        NewQuoteViewController.self >>   .navigationTitle
         RandomQuoteViewController.computedPageName<<
     }
 }
 
 extension UIViewController {
-    public override class func initialize() {
+    open override class func initialize() {
         struct Static {
-            static var token: dispatch_once_t = 0
+            static var token: Int = 0
         }
 
         // make sure this isn't a subclass
@@ -45,46 +45,48 @@ extension UIViewController {
             return
         }
 
-        dispatch_once(&Static.token) {
-            let originalSelector = #selector(UIViewController.viewDidAppear(_:))
-            let swizzledSelector = #selector(UIViewController.swiftalytics_viewDidAppear(_:))
-
-            let originalMethod = class_getInstanceMethod(self, originalSelector)
-            let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
-
-            let didAddMethod = class_addMethod(self, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
-
-            if didAddMethod {
-                class_replaceMethod(self, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
-            } else {
-                method_exchangeImplementations(originalMethod, swizzledMethod);
-            }
-        }
+        swizzling(self)
     }
 
-    // MARK: - Method Swizzling
-
-    func swiftalytics_viewDidAppear(animated: Bool) {
+    func swiftalytics_viewDidAppear(_ animated: Bool) {
         self.swiftalytics_viewDidAppear(animated)
-        if let name = Swiftalytics.trackingNameForViewController(self) {
+        if let name = Swiftalytics.trackingName(for: self) {
             // Report to your analytics service
             print("Tracked view controller: "+name)
         }
     }
 }
 
+fileprivate let swizzling: (UIViewController.Type) -> () = { viewController in
 
-postfix operator << { }
-private postfix func <<<T: UIViewController>(trackClassFunction: (T -> () -> String)) {
-    Swiftalytics.setTrackingNameForViewController(trackClassFunction)
+    let originalSelector = #selector(UIViewController.viewDidAppear(_:))
+    let swizzledSelector = #selector(UIViewController.swiftalytics_viewDidAppear(_:))
+    
+    let originalMethod = class_getInstanceMethod(viewController, originalSelector)
+    let swizzledMethod = class_getInstanceMethod(viewController, swizzledSelector)
+    
+    let didAddMethod = class_addMethod(viewController, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
+    
+    if didAddMethod {
+        class_replaceMethod(viewController, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
+    } else {
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+    
 }
 
-private func >> <T: UIViewController>(left: T.Type, @autoclosure right: () -> String) {
-    Swiftalytics.setTrackingNameForViewController(left, name: right)
+
+postfix operator <<
+private postfix func <<<T: UIViewController>(trackClassFunction: @escaping ((T) -> () -> String)) {
+    Swiftalytics.setTrackingName(for: trackClassFunction)
+}
+
+private func >> <T: UIViewController>(left: T.Type, right: @autoclosure () -> String) {
+    Swiftalytics.setTrackingName(for: left, name: right)
 }
 private func >> <T: UIViewController>(left: T.Type, right: TrackingNameType) {
-    Swiftalytics.setTrackingNameForViewController(left, trackingType: right)
+    Swiftalytics.setTrackingName(for: left, trackingType: right)
 }
-private func >> <T: UIViewController>(left: T.Type, right: (T -> String)) {
-    Swiftalytics.setTrackingNameForViewController(left, nameFunction: right)
+private func >> <T: UIViewController>(left: T.Type, right: @escaping ((T) -> String)) {
+    Swiftalytics.setTrackingName(for: left, nameFunction: right)
 }
