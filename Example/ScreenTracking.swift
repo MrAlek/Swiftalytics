@@ -35,20 +35,20 @@ struct ScreenTracking {
 }
 
 extension UIViewController {
-    open override class func initialize() {
+    class func initializeClass() {
         struct Static {
             static var token: Int = 0
         }
-
+        
         // make sure this isn't a subclass
         if self !== UIViewController.self {
             return
         }
-
+        
         swizzling(self)
     }
 
-    func swiftalytics_viewDidAppear(_ animated: Bool) {
+    @objc func swiftalytics_viewDidAppear(_ animated: Bool) {
         self.swiftalytics_viewDidAppear(animated)
         if let name = Swiftalytics.trackingName(for: self) {
             // Report to your analytics service
@@ -65,12 +65,12 @@ fileprivate let swizzling: (UIViewController.Type) -> () = { viewController in
     let originalMethod = class_getInstanceMethod(viewController, originalSelector)
     let swizzledMethod = class_getInstanceMethod(viewController, swizzledSelector)
     
-    let didAddMethod = class_addMethod(viewController, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
+    let didAddMethod = class_addMethod(viewController, originalSelector, method_getImplementation(swizzledMethod!), method_getTypeEncoding(swizzledMethod!))
     
     if didAddMethod {
-        class_replaceMethod(viewController, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
+        class_replaceMethod(viewController, swizzledSelector, method_getImplementation(originalMethod!), method_getTypeEncoding(originalMethod!))
     } else {
-        method_exchangeImplementations(originalMethod, swizzledMethod);
+        method_exchangeImplementations(originalMethod!, swizzledMethod!);
     }
     
 }

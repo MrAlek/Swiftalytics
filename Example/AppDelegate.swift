@@ -42,6 +42,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    override init() {
+        super.init()
+        UIViewController.initializeClass() // https://stackoverflow.com/questions/46361065/method-swizzling-in-swift-4/46361066#46361066
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         ScreenTracking.setup()
         

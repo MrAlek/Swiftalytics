@@ -36,8 +36,9 @@ extension UIViewController {
 
 ## Swift versions
 
-* Swiftalytics 0.4 and above uses Swift 3.0
-* Swiftalytics 0.3 of the framework uses Swift 2.3
+* Swiftalytics 0.5 uses Swift 4.1
+* Swiftalytics 0.4 uses Swift 3.0
+* Swiftalytics 0.3 uses Swift 2.3
 * Swiftalytics 0.2 uses Swift 2.2
 
 ## Installation
@@ -108,23 +109,14 @@ When using dynamic tracking, the tracking name for that view controller is compu
 
 ### Reporting view tracking to analytics providers
 
-```swift
-extension UIViewController {
-    func viewDidAppear(animated: Bool) {
-        if let name = Swiftalytics.trackingName(for: self) {
-            // Report to your analytics service
-            println("Tracked view controller: "+name)
-        }
-    }
-}
-```
+The recommended approach to report screen tracking when using Swiftalytics is to swizzle `viewDidAppear` on `UIViewController`. See the demo app for an example of how to do this.
 
-By extending UIViewController, you can choose when in the view lifecycle to send analytics events to your provider's SDK or for internal logging.
-[ARAnalytics](https://github.com/orta/ARAnalytics) is highly recommended to decouple your app from your chosen provider.
+[ARAnalytics](https://github.com/orta/ARAnalytics) is recommended for decoupling your app from your chosen provider.
 
 ### Recommended setup with custom operators
 
-The recommended approach to use Swiftalytics is with custom operators, in order to achieve a clean DSL.
+Using custom operators is highly recommended with Swiftanalytics, in order to achieve a clean DSL.
+
 Since operator overload polluting is a problem in Swift, no operators are declared in the framework.
 Instead it is recommended to create a Swift file for view tracking with private scoped operators and declare all page names there.
 
